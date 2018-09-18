@@ -1,0 +1,60 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Outputs:
+  ServerlessAPIUrl:
+    Value:
+      Fn::Sub:
+      - https://${api}.execute-api.${region}.amazonaws.com/${stage}/
+      - api:
+          Ref: ServerlessApi
+        region:
+          Ref: AWS::Region
+        stage:
+          Ref: ServerlessApi.Stage
+Resources:
+  LambdaProxy:
+    Properties:
+      CodeUri: s3://serverless-fwk/ec458bcf6cb97892a36c93904ffca3b8
+      Events:
+        ApiRequest:
+          Properties:
+            Method: ANY
+            Path: /
+            RestApiId:
+              Ref: ServerlessApi
+          Type: Api
+      Handler: lambda_proxy.request_handler
+      Runtime: python3.6
+    Type: AWS::Serverless::Function
+  ServerlessApi:
+    Properties:
+      DefinitionBody:
+        info:
+          title: Serverless Api
+          version: '1.0'
+        paths:
+          /songs:
+            get:
+              responses:
+                '200':
+                  description: 200 response
+              x-amazon-apigateway-integration:
+                httpMethod: POST
+                type: aws_proxy
+                uri:
+                  Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${LambdaProxy.Arn}/invocations
+        swagger: '2.0'
+      StageName: prod
+    Type: AWS::Serverless::Api
+  ServerlessApiLambdaPermission:
+    DependsOn: LambdaProxy
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt:
+        - LambdaProxy
+        - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Sub: arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ServerlessApi}/*
+    Type: AWS::Lambda::Permission
+Transform: AWS::Serverless-2016-10-31
