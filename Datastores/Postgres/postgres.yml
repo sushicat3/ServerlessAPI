@@ -1,0 +1,28 @@
+Resources:
+  Type: AWS::EC2::Instance
+  Properties:
+    # IamInstanceProfile: String
+    InstanceType: t2.micro
+    # KeyName: String
+    # LaunchTemplate: Amazon EC2  Instance LaunchTemplateSpecification
+    # Monitoring: Boolean
+    NetworkInterfaces: 
+      - EC2 Network Interface
+    PlacementGroupName: String
+    PrivateIpAddress: String
+    RamdiskId: String
+    SecurityGroupIds: 
+      - String
+    SecurityGroups: 
+      - String
+    SourceDestCheck: Boolean
+    SsmAssociations: 
+      - SSMAssociation
+    SubnetId: String
+    Tags: 
+      - Resource Tag
+    Tenancy: String
+    UserData: String
+    Volumes: 
+      - EC2 MountPoint
+    AdditionalInfo: String
