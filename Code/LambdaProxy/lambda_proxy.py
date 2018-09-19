@@ -17,6 +17,19 @@ class DatabaseConnection:
 	def get(self):
 		select_command = 'select * from users'
 		self.cursor.execute(select_command)
+		users = self.cursor.fetchall()
+		users_json = {}
+		users_json['users'] = []
+		for user in users:
+			user_json = {}
+			user_json['user_id'] = user[0]
+			user_json['username'] = user[1]
+			user_json['created_on'] = str(user[2])
+			users_json['users'].append(user_json)
+		
+		return users_json
+			
+		
 
 def request_handler(event, context):
 	response = {}
@@ -26,14 +39,7 @@ def request_handler(event, context):
 	headers = {'Content-Type': 'application/json'}
 	response['headers'] = headers
 	
-	body = {}
-	body['title'] = 'Come Together'
-	body['artist'] = 'The Beatles'
-	body['album'] = 'Abbey Road'
-
-	response['body'] = json.dumps(body)
-
 	data_conn = DatabaseConnection()
-	print(data_conn.get())
+	response['body'] = json.dumps(data_conn.get())
 
 	return response
