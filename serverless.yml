@@ -33,8 +33,15 @@ Resources:
             - - Serverless Api
               - !Ref 'AWS::StackName'
         paths:
-          "/songs":
-            get:
+          "/{proxy+}":
+            x-amazon-apigateway-any-method:
+              produces:
+                - application/json
+              parameters:
+                - name: proxy
+                  in: path
+                  required: true
+                  type: string
               responses:
                 '200':
                   description: 200 response
