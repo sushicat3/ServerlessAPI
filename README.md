@@ -9,7 +9,7 @@ Framework for a Serverless API aimed at enabling and optimizing use of low-traff
 
 1. Clone the Repository
 
-1. Install dependencies into "lib" folder.
+2. Install dependencies into "lib" folder.
 ```
 cd Code/LambdaProxy
 pip install -t lib <module>
@@ -17,7 +17,7 @@ cd lib
 rm -r *.dist-info
 ```
 
-1. Deploy a Cloudformation Stack named "serverless-api"
+3. Deploy a Cloudformation Stack named "serverless-api"
 ```
 aws s3 mb <BUCKET>
 ./deploy.sh <BUCKET> serverless-api
@@ -25,5 +25,5 @@ aws s3 mb <BUCKET>
 
 *Special instructions for psycopg2:*
 1. obtain compiled psycopg2 for Amazon Linux here: https://github.com/jkehler/awslambda-psycopg2
-1. follow instructions and copy into "lib" folder
+2. follow instructions and copy into "lib" folder
 
