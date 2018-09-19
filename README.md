@@ -17,9 +17,9 @@ cd lib
 rm -r *.dist-info
 ```
 
-	* Special instructions for psycopg2:
-		1. obtain compiled psycopg2 for Amazon Linux here: https://github.com/jkehler/awslambda-psycopg2
-		2. follow instructions and copy into "lib" folder
+### *Special instructions for psycopg2:*
+1. obtain compiled psycopg2 for Amazon Linux here: https://github.com/jkehler/awslambda-psycopg2
+2. follow instructions and copy into "lib" folder
 
 3. Deploy a Cloudformation Stack named "serverless-api"
 ```
