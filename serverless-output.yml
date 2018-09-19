@@ -13,7 +13,7 @@ Outputs:
 Resources:
   LambdaProxy:
     Properties:
-      CodeUri: s3://serverless-fwk/ec458bcf6cb97892a36c93904ffca3b8
+      CodeUri: s3://serverless-fwk/8700c372d4fdc3cb31fbfff8b7cb4788
       Events:
         ApiRequest:
           Properties:
@@ -29,7 +29,11 @@ Resources:
     Properties:
       DefinitionBody:
         info:
-          title: Serverless Api
+          title:
+            Fn::Join:
+            - ' - '
+            - - Serverless Api
+              - Ref: AWS::StackName
           version: '1.0'
         paths:
           /songs:

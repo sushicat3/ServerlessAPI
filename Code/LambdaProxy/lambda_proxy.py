@@ -1,9 +1,9 @@
 import json
 import sys
 import os
-import psychopg2
 
-sys.path.append('/lib')
+sys.path.append('./lib')
+import psycopg2
 
 def request_handler(event, context):
 	response = {}

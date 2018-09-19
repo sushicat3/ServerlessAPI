@@ -28,7 +28,10 @@ Resources:
         swagger: '2.0'
         info:
           version: '1.0'
-          title: Serverless Api
+          title: !Join
+            - ' - '
+            - - Serverless Api
+              - !Ref 'AWS::StackName'
         paths:
           "/songs":
             get:
