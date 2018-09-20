@@ -2,6 +2,8 @@
 
 Framework for a Serverless API aimed at enabling and optimizing use of low-traffic & high-availibility microservices.
 
+More Info: https://docs.google.com/presentation/d/1ULwpLN9vEpZATCZJdgAa5lp8FK4yvtUE5jUBwgDMvXA/edit?usp=sharing
+
 ## Requirements:
 * AWS CLI
 
