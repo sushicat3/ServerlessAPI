@@ -1,0 +1,1 @@
+locust --host=https://lvtr06hwf0.execute-api.us-east-1.amazonaws.com/prod
