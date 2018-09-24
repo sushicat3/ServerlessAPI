@@ -14,4 +14,3 @@ fi
 aws cloudformation create-stack \
 	--stack-name $STACK_NAME \
 	--template-body file://postgresRDS.yml
-

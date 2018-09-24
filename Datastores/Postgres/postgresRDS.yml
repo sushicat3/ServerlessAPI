@@ -6,8 +6,8 @@ Resources:
       BackupRetentionPeriod: 7
       CopyTagsToSnapshot: True
       DBInstanceClass: db.t2.micro
-      DBInstanceIdentifier: posts-ec2
-      DBName: posts-ec2
+      DBInstanceIdentifier: postsEC2
+      DBName: postsEC2
       DBParameterGroupName: default.postgres10
       DBSecurityGroups:
         - sg-7fc8b833
