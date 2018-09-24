@@ -571,7 +571,7 @@ Resources:
             - |
               pip install flask
             - |
-              sudo yum install git
+              sudo yum install -y git
             - |
               git clone https://github.com/sushicat3/ServerlessAPI.git
             - |
