@@ -571,6 +571,8 @@ Resources:
             - |
               pip install flask
             - |
+              sudo yum install git
+            - |
               git clone https://github.com/sushicat3/ServerlessAPI.git
             - |
               cd ServerlessAPI/EC2Arch

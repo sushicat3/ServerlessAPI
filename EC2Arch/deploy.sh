@@ -17,5 +17,7 @@ aws cloudformation create-stack \
 	--parameters \
 		ParameterKey=VpcId,ParameterValue=vpc-10c81b6a \
 		ParameterKey=Subnets,ParameterValue=subnet-18d78052\\,subnet-a270f0fe \
-		ParameterKey=InstanceType,ParameterValue=t2.micro
+		ParameterKey=InstanceType,ParameterValue=t2.micro \
+		ParameterKey=KeyName,ParameterValue=swetal-IAM-keypair \
+	--capabilities CAPABILITY_IAM
 
