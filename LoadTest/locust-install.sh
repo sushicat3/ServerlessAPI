@@ -1,5 +1,6 @@
 # need pip3 on EC2 to install locustio for python3
 
+curl -O https://bootstrap.pypa.io/get-pip.py
 python3 get-pip.py --user
 
 ls -a ~
@@ -12,11 +13,11 @@ ls -a ~
 nano .profile
 
 # add
-# export PATH=~/.local/bin:$PATH
+# 	export PATH=~/.local/bin:$PATH
 # to bottom of file
 # ^O (save), ^X (close)
 
-$ source ~/.profile
+source ~/.profile
 
 pip -V
 # pip 18.0 from /home/ubuntu/.local/lib/python3.5/site-packages/pip (python 3.5)
