@@ -17,7 +17,7 @@ fi
 
 zip -r package.zip app.py lib
 
-aws s3 cp package.zip s3://server-fwk/app.py
+aws s3 cp package.zip s3://server-fwk/package.zip
 
 # https://docs.aws.amazon.com/cli/latest/reference/cloudformation/create-stack.html
 aws cloudformation create-stack \

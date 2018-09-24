@@ -571,7 +571,7 @@ Resources:
             - |
               pip install flask
             - |
-              aws s3 cp s3://server-fwk/app.py package.zip
+              aws s3 cp s3://server-fwk/package.zip package.zip
             - |
               unzip package.zip
             - |
