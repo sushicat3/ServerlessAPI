@@ -9,8 +9,6 @@ Resources:
       DBInstanceIdentifier: postsEC2
       DBName: postsEC2
       DBParameterGroupName: default.postgres10
-      DBSecurityGroups:
-        - sg-7fc8b833
       DBSubnetGroupName: default
       Engine: postgres
       EngineVersion: 10.4

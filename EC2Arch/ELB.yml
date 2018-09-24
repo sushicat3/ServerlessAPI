@@ -571,11 +571,9 @@ Resources:
             - |
               pip install flask
             - |
-              sudo yum install -y git
+              aws s3 cp s3://server-fwk/app.py package.zip
             - |
-              git clone https://github.com/sushicat3/ServerlessAPI.git
-            - |
-              cd ServerlessAPI/EC2Arch
+              unzip package.zip
             - |
               sudo python app.py
 
