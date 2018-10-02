@@ -10,13 +10,13 @@ class UserBehavior(TaskSet):
     def getPosts(l):
         l.client.get("/posts")
 
-    @task
-    def getSushicatPosts(l):
-        l.client.get("/posts/users/2")
+    # @task
+    # def getSushicatPosts(l):
+    #     l.client.get("/posts/users/2")
 
-    @task
-    def getOctocatPosts(l):
-        l.client.get("/posts/users/4")
+    # @task
+    # def getOctocatPosts(l):
+    #     l.client.get("/posts/users/4")
 
 
 class WebsiteUser(HttpLocust):

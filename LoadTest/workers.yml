@@ -1,0 +1,10 @@
+purchase_type: on_demand
+subnet_id: subnet-0f3b495a945b343b5
+num_instances: 5
+key_name: swetal-IAM-keypair
+security_group_ids: sg-0e0bb0f598e6aded4
+instance_type: m4.large
+tag_name: locust-cluster
+vol_size: 100
+role: worker
+use_eips: true

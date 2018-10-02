@@ -97,6 +97,10 @@ class DatabaseConnection:
 
 dbConn = DatabaseConnection()
 
+@app.route('/health', methods=['GET'])
+def home():
+	return jsonify('healthy')
+
 @app.route('/users', methods=['GET', 'POST'])
 def users():
 	if request.method == 'GET': 
@@ -115,14 +119,14 @@ def posts():
 		user_id = post_json['user_id']
 		return jsonify(dbConn.add_post(post, user_id))
 
-@app.route('/posts/<int:post_id>', methods=['GET'])
-def post_by_idb(post_id):
+@app.route('/posts/<post_id>', methods=['GET'])
+def post_by_id(post_id):
 	return jsonify(get_posts_by_id(post_id))
 
-@app.route('/posts/user/<int:user_id>', methods=['GET'])
+@app.route('/posts/user/<user_id>', methods=['GET'])
 def posts_by_user_id(user_id):
 	return jsonify(dbConn.get_posts_by_user_id(user_id))
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80)
+    app.run(port=80)
 

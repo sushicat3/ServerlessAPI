@@ -551,22 +551,22 @@ Resources:
               yum update -y aws-cfn-bootstrap
             - |
               yum update -y aws-cli
-            - '/opt/aws/bin/cfn-init -v '
-            - '         --stack '
-            - !Ref 'AWS::StackName'
-            - '         --resource LaunchConfig '
-            - '         --configsets full_install '
-            - '         --region '
-            - !Ref 'AWS::Region'
-            - |+
+            # - '/opt/aws/bin/cfn-init -v '
+            # - '         --stack '
+            # - !Ref 'AWS::StackName'
+            # - '         --resource LaunchConfig '
+            # - '         --configsets full_install '
+            # - '         --region '
+            # - !Ref 'AWS::Region'
+            # - |+
 
-            - '/opt/aws/bin/cfn-signal -e $? '
-            - '         --stack '
-            - !Ref 'AWS::StackName'
-            - '         --resource WebServerGroup '
-            - '         --region '
-            - !Ref 'AWS::Region'
-            - |+
+            # - '/opt/aws/bin/cfn-signal -e $? '
+            # - '         --stack '
+            # - !Ref 'AWS::StackName'
+            # - '         --resource WebServerGroup '
+            # - '         --region '
+            # - !Ref 'AWS::Region'
+            # - |+
 
             - |
               pip install flask
@@ -594,9 +594,11 @@ Resources:
   ALBTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
     Properties:
-      HealthCheckIntervalSeconds: 30
+      HealthCheckIntervalSeconds: 10
       HealthCheckTimeoutSeconds: 5
       HealthyThresholdCount: 3
+      HealthCheckPath: /health
+      HealthCheckPort: '80'
       Port: 80
       Protocol: HTTP
       UnhealthyThresholdCount: 5
@@ -641,6 +643,8 @@ Resources:
                 Action:
                   - 'elasticloadbalancing:DescribeTargetHealth'
                 Resource: '*'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
 Outputs:
   URL:
     Description: URL of the website
