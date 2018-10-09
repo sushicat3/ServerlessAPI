@@ -551,15 +551,11 @@ Resources:
             - |
               sudo apt-get update
             - |
-              sudo apt-get install -y nginx
+              sudo apt-get install nginx
             - |
               sudo rm /etc/nginx/sites-enabled/default
             - |
-              sudo apt install -y awscli
-            - |
-              sudo aws s3 cp s3://server-fwk/ALB/example.com /etc/nginx/sites-enabled/example.com
-            # - |
-            #   sudo echo "server { listen 80; location / { proxy_pass http://127.0.0.1:8000/; } }" >> /etc/nginx/sites-available/example.com
+              sudo echo "server { listen 80; location / { proxy_pass http://127.0.0.1:8000/; } }" >> /etc/nginx/sites-available/example.com
             - |
               sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/example.com
             - |
@@ -567,7 +563,7 @@ Resources:
             - |
               pip install flask gunicorn
             - |
-              sudo apt-get install -y python3-venv
+              sudo apt-get install python3-venv
             - |
               sudo pip install psycopg2
             - |

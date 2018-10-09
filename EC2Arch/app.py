@@ -3,8 +3,6 @@ import sys
 from flask import Flask
 from flask import request
 from flask import jsonify
-
-sys.path.append('./lib')
 import psycopg2
 
 app = Flask(__name__)
@@ -97,8 +95,12 @@ class DatabaseConnection:
 
 dbConn = DatabaseConnection()
 
-@app.route('/health', methods=['GET'])
+@app.route('/', methods=['GET'])
 def home():
+	return jsonify('welcome to the posts api! :)')
+
+@app.route('/health', methods=['GET'])
+def health():
 	return jsonify('healthy')
 
 @app.route('/users', methods=['GET', 'POST'])
@@ -128,5 +130,5 @@ def posts_by_user_id(user_id):
 	return jsonify(dbConn.get_posts_by_user_id(user_id))
 
 if __name__ == "__main__":
-    app.run(port=80)
+    app.run()
 
