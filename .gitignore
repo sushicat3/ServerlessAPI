@@ -1,6 +1,6 @@
 .DS_Store
 serverless-output.yml
-Code/LambdaProxy/lib/psycopg2
+Code/postgresProxy/lib/psycopg2
 EC2Arch/package.zip
 *.tfvars
 *.terraform
