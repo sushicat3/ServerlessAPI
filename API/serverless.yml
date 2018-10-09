@@ -7,7 +7,7 @@ Resources:
     Properties:
       Handler: lambda_proxy.request_handler
       Runtime: python3.6
-      CodeUri: './Code/LambdaProxy/'     
+      CodeUri: './LambdaCode/postgresProxy/'     
       Events:
         ApiRequest:
           Type: Api
